@@ -67,6 +67,6 @@ export default class BottomNav extends Component {
   }
 
   getNotificationCount() {
-    return app.session.user ? app.session.user.newNotificationsCount() : 0;
+    return app.session.user ? (app.session.user.attribute('newNotificationsCount') || 0) : 0;
   }
 }
