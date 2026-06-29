@@ -49,7 +49,7 @@
 // Touch feedback
 .touch-feedback() {
   &:active {
-    transform: scale(0.98;
+    transform: scale(0.98);
     opacity: 0.9;
   }
   transition: transform @modern-transition-fast, opacity @modern-transition-fast;
@@ -65,14 +65,14 @@
     position: absolute;
     inset: 0;
     background: radial-gradient(circle, rgba(0,0,0,0.1) 10%, transparent 10.01%;
-    transform: scale(10;
+    transform: scale(10);
     opacity: 0;
     transition: transform 0.4s, opacity 0.8s;
     pointer-events: none;
   }
 
   &:active::after {
-    transform: scale(0;
+    transform: scale(0);
     opacity: 1;
     transition: 0s;
   }
