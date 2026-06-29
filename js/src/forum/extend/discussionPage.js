@@ -1,43 +1,35 @@
 import { extend, override } from 'flarum/common/extend';
 import DiscussionPage from 'flarum/forum/components/DiscussionPage';
-import PostStream from 'flarum/forum/components/PostStream';
-import Post from 'flarum/forum/components/Post';
 
-// Override DiscussionPage for mobile layout
-extend(DiscussionPage.prototype, 'view', function (vnode) {
+// On mobile, completely replace the view to add the mobile nav bar
+override(DiscussionPage.prototype, 'view', function (original) {
   const discussion = this.discussion;
-
-  if (!discussion) {
-    return <div className="DiscussionPage LoadingIndicator" />;
-  }
-
   const isMobile = window.innerWidth < 768;
 
-  return (
-    <div className={`DiscussionPage ${isMobile ? 'DiscussionPage--mobile' : ''}`}>
-      {isMobile && this.viewMobileNav(discussion)}
-      <div className="DiscussionPage-discussion">
-        {this.hero()}
-        {this.postStream()}
+  if (isMobile && discussion) {
+    return (
+      <div className="DiscussionPage DiscussionPage--mobile">
+        <nav className="DiscussionPage-nav">
+          <button
+            className="Button Button--back"
+            onclick={() => window.history.back()}
+            aria-label="Back"
+          >
+            <i className="fas fa-arrow-left icon" />
+          </button>
+          <h1 className="DiscussionPage-title">{discussion.title()}</h1>
+          <button className="Button Button--icon" aria-label="Menu">
+            <i className="fas fa-ellipsis-v icon" />
+          </button>
+        </nav>
+        <div className="DiscussionPage-discussion">
+          {this.hero()}
+          {this.postStream()}
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
 
-// Add mobile navigation bar
-extend(DiscussionPage.prototype, 'viewMobileNav', function (discussion) {
-  return (
-    <nav className="DiscussionPage-nav">
-      <button
-        className="Button Button--back"
-        onclick={() => window.history.back()}
-      >
-        <i className="fas fa-arrow-left icon" />
-      </button>
-      <h1 className="DiscussionPage-title">{discussion.title()}</h1>
-      <button className="Button Button--icon">
-        <i className="fas fa-ellipsis-v icon" />
-      </button>
-    </nav>
-  );
+  // On desktop, use the original view
+  return original();
 });
