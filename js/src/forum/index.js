@@ -1,25 +1,15 @@
-import { extend, override } from 'flarum/common/extend';
+import { extend } from 'flarum/common/extend';
 import app from 'flarum/forum/app';
-import Component from 'flarum/common/Component';
-import HeaderPrimary from 'flarum/forum/components/HeaderPrimary';
-import HeaderSecondary from 'flarum/forum/components/HeaderSecondary';
-import IndexPage from 'flarum/forum/components/IndexPage';
-import DiscussionPage from 'flarum/forum/components/DiscussionPage';
-import DiscussionListItem from 'flarum/forum/components/DiscussionListItem';
-import Post from 'flarum/forum/components/Post';
 
 // Import our components
 import BottomNav from './components/BottomNav';
 import FloatingActionButton from './components/FloatingActionButton';
 import MobileHeader from './components/MobileHeader';
 
-// Import extend modules
-import './extend/indexPage';
-import './extend/discussionListItem';
-import './extend/discussionPage';
-import './extend/post';
+// Import extend modules (CSS-only styling)
 import './extend/header';
 import './extend/sidebar';
+import './extend/indexPage';
 
 // Initialize the theme
 app.initializers.add('hadi-flarum-theme-modern', function () {
