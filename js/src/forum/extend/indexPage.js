@@ -1,29 +1,17 @@
-import { extend, override } from 'flarum/common/extend';
+import { extend } from 'flarum/common/extend';
 import IndexPage from 'flarum/forum/components/IndexPage';
 import DiscussionList from 'flarum/forum/components/DiscussionList';
-import DiscussionListItem from 'flarum/forum/components/DiscussionListItem';
 
-// Override IndexPage view for mobile-first layout
+// Add mobile class to IndexPage for CSS targeting
 extend(IndexPage.prototype, 'view', function (vnode) {
-  // Add mobile-specific classes
-  const isMobile = window.innerWidth < 768;
-
-  if (isMobile) {
-    // Ensure content takes full width on mobile
-    const content = this.element.querySelector('.IndexPage-results');
-    if (content) {
-      content.style.width = '100%';
-      content.style.float = 'none';
-      content.style.margin = '0';
-      content.style.padding = '12px';
-    }
+  if (vnode && vnode.attrs) {
+    vnode.attrs.className = (vnode.attrs.className || '') + ' ModernIndexPage';
   }
 });
 
-// Override DiscussionList view for card layout
+// Add card class to DiscussionList
 extend(DiscussionList.prototype, 'view', function (vnode) {
-  // Add card styling class
-  if (this.element) {
-    this.element.classList.add('DiscussionList--cards');
+  if (vnode && vnode.attrs) {
+    vnode.attrs.className = (vnode.attrs.className || '') + ' DiscussionList--cards';
   }
 });

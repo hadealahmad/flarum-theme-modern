@@ -105,6 +105,6 @@ export default class MobileHeader extends Component {
   }
 
   getNotificationCount() {
-    return app.session.user ? app.session.user.unreadNotificationsCount() : 0;
+    return app.session.user ? app.session.user.newNotificationsCount() : 0;
   }
 }
