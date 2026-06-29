@@ -27,7 +27,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle, rgba(0,0,0,0.1) 10%, transparent 10.01%);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 10%, transparent 10.01%);
     transform: scale(10);
     opacity: 0;
     transition: transform 0.4s, opacity 0.8s;
@@ -38,5 +38,15 @@
     transform: scale(0);
     opacity: 1;
     transition: 0s;
+  }
+}
+
+// Mobile only helper
+.mobile-only() {
+  @media (max-width: 767px) {
+    display: block;
+  }
+  @media (min-width: 768px) {
+    display: none !important;
   }
 }
