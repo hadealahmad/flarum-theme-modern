@@ -1,6 +1,18 @@
 // Core Layout Styles
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
+// RTL support - override Flarum's dir="ltr" for RTL locales
+html[dir="ltr"][lang^="ar"],
+html[dir="ltr"][lang^="fa"],
+html[dir="ltr"][lang^="he"],
+html[dir="ltr"][lang^="ur"],
+html[dir="ltr"][lang^="ps"],
+html[dir="ltr"][lang^="sd"],
+html[dir="ltr"][lang^="yi"] {
+  direction: rtl;
+  text-align: right;
+}
+
 html {
   font-family: @modern-font-family;
   font-size: 16px;
@@ -19,6 +31,12 @@ body {
   line-height: @modern-leading-normal;
   overflow-x: hidden;
   transition: background var(--m-transition), color var(--m-transition);
+}
+
+// Force text alignment for RTL
+html[dir="rtl"] body,
+html[dir="rtl"] .App-content {
+  text-align: right;
 }
 
 * {

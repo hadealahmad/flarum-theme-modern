@@ -1,14 +1,14 @@
-// Post Styles - Clean Reading Experience
+// Post Styles - Override Flarum defaults with modern design
 // Uses CSS logical properties for RTL support
 
+// Override Flarum's default Post margin/padding
 .Post {
-  padding-inline-start: @modern-space-4;
-  padding-inline-end: @modern-space-4;
-  padding-top: @modern-space-4;
-  padding-bottom: @modern-space-4;
+  padding: @modern-space-4 !important;
+  margin: 0 !important;
   border-bottom: 1px solid var(--m-border-light);
   position: relative;
   transition: background var(--m-transition-fast);
+  border-radius: 0;
 
   &:last-child {
     border-bottom: none;
@@ -17,13 +17,20 @@
   &:target {
     background: var(--m-primary-glow);
   }
+
+  &.editing {
+    top: 0;
+    opacity: 1;
+  }
 }
 
+// Override Flarum's default Post-header
 .Post-header {
   display: flex;
   align-items: center;
   gap: @modern-space-3;
   margin-bottom: @modern-space-3;
+  color: var(--m-text);
 
   .avatar {
     width: 40px;
@@ -37,6 +44,8 @@
   .PostMeta {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
 
     .username {
       font-weight: 700;
@@ -81,6 +90,7 @@
   }
 }
 
+// Override Flarum's default Post-body
 .Post-body {
   font-size: @modern-text-base;
   line-height: @modern-leading-relaxed;
@@ -96,6 +106,7 @@
   a {
     color: var(--m-primary);
     text-decoration: none;
+    border-bottom: none;
     transition: opacity var(--m-transition-fast);
 
     &:hover {
@@ -113,6 +124,8 @@
     border-radius: 0 @modern-radius @modern-radius 0;
     color: var(--m-text-secondary);
     font-style: italic;
+    border-top: none;
+    border-bottom: none;
   }
 
   img {
@@ -156,8 +169,9 @@
   }
 }
 
+// Override Flarum's default Post-actions (float: right -> flex)
 .Post-actions {
-  display: flex;
+  display: flex !important;
   align-items: center;
   gap: @modern-space-2;
   margin-top: @modern-space-3;
@@ -165,6 +179,21 @@
   padding-inline-end: @modern-space-4;
   padding-top: @modern-space-3;
   border-top: 1px solid var(--m-border-light);
+  float: none !important;
+  position: static !important;
+
+  > ul {
+    display: flex;
+    gap: @modern-space-2;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    > li {
+      margin: 0;
+      display: inline-block;
+    }
+  }
 }
 
 .Post-isEdited {
@@ -174,9 +203,35 @@
   margin-inline-start: @modern-space-2;
 }
 
+// Override Flarum's PostPreview
+.PostPreview {
+  padding-inline-start: 56px;
+  padding-inline-end: @modern-space-4;
+
+  .PostPreview-badge, .Avatar {
+    float: none;
+    position: static;
+  }
+}
+
+// Override Flarum's ReplyPlaceholder
+.ReplyPlaceholder {
+  border: 2px dashed var(--m-border);
+  border-radius: @modern-radius-lg;
+  background: var(--m-surface);
+  margin: @modern-space-4;
+  width: auto;
+  padding: @modern-space-4;
+
+  &:hover {
+    border-color: var(--m-primary-light);
+  }
+}
+
+// Desktop overrides
 @media (min-width: 768px) {
   .Post {
-    padding: @modern-space-5 @modern-space-6;
+    padding: @modern-space-5 @modern-space-6 !important;
     border-bottom: 1px solid var(--m-border);
     transition: background var(--m-transition-fast);
 

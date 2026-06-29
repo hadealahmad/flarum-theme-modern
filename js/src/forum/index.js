@@ -11,8 +11,21 @@ import './extend/header';
 import './extend/sidebar';
 import './extend/indexPage';
 
+// RTL locales
+const RTL_LOCALES = ['ar', 'fa', 'he', 'ur', 'ps', 'sd', 'yi'];
+
+function isRTL() {
+  const lang = document.documentElement.getAttribute('lang') || '';
+  return RTL_LOCALES.some(loc => lang.startsWith(loc));
+}
+
 // Initialize the theme
 app.initializers.add('hadi-flarum-theme-modern', function () {
+  // Fix RTL direction - Flarum sets dir="ltr" even for RTL locales
+  if (isRTL()) {
+    document.documentElement.setAttribute('dir', 'rtl');
+  }
+
   // Mount bottom navigation
   const mountBottomNav = () => {
     const existing = document.getElementById('modern-bottom-nav');

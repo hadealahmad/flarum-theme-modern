@@ -1,60 +1,54 @@
-// Discussion List Styles
-@media (max-width: 767px) {
-  .IndexPage {
-    padding-top: @modern-header-height;
+// Discussion List Styles - Override Flarum defaults
+
+.DiscussionList {
+  margin: 0 !important;
+  padding: @modern-space-3;
+}
+
+.DiscussionList-discussions {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: @modern-space-2;
+}
+
+.DiscussionList-loadMore {
+  text-align: center;
+  margin-top: @modern-space-3;
+
+  .LoadingIndicator-container {
+    height: 46px;
+  }
+}
+
+.DiscussionListItem {
+  background: var(--m-surface);
+  border-radius: @modern-radius-lg;
+  border: 1px solid var(--m-border);
+  padding: @modern-space-4;
+  margin: 0;
+  box-shadow: var(--m-shadow-sm);
+  transition: box-shadow var(--m-transition), transform var(--m-transition), border-color var(--m-transition);
+
+  &:hover {
+    box-shadow: var(--m-shadow-md);
+    transform: translateY(-1px);
+    border-color: var(--m-border-strong);
   }
 
-  .DiscussionList {
-    padding: @modern-space-3;
-    display: flex;
-    flex-direction: column;
-    gap: @modern-space-3;
-  }
-
-  .DiscussionList-discussions {
-    display: flex;
-    flex-direction: column;
-    gap: @modern-space-2;
-  }
-
-  .DiscussionListItem {
-    background: var(--m-surface);
-    border-radius: @modern-radius-lg;
-    border: 1px solid var(--m-border);
-    padding: @modern-space-4;
-    margin: 0;
-    box-shadow: var(--m-shadow-sm);
-    transition: box-shadow var(--m-transition), transform var(--m-transition), border-color var(--m-transition);
-
-    &:hover {
-      box-shadow: var(--m-shadow-md);
-      transform: translateY(-1px);
-      border-color: var(--m-border-strong);
-    }
-
-    &:active {
-      transform: scale(0.99);
-    }
+  &:active {
+    transform: scale(0.99);
   }
 }
 
 @media (min-width: 768px) {
-  .DiscussionList-discussions {
-    display: flex;
-    flex-direction: column;
-    gap: @modern-space-2;
-  }
-
   .DiscussionListItem {
-    background: var(--m-surface);
-    border-radius: @modern-radius-lg;
-    border: 1px solid var(--m-border);
     padding: @modern-space-4 @modern-space-5;
-    box-shadow: var(--m-shadow-sm);
-    transition: box-shadow var(--m-transition), transform var(--m-transition), border-color var(--m-transition);
 
     &:hover {
-      box-shadow: var(--m-shadow-md);
       transform: translateY(-2px);
       border-color: var(--m-primary-light);
     }
