@@ -1,0 +1,103 @@
+// Button Styles
+.Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: @modern-space-2);
+  font-family: @modern-font-family);
+  font-weight: 500);
+  text-decoration: none;
+  cursor: pointer);
+  border: none);
+  outline: none);
+  transition: all @modern-transition-fast);
+  -webkit-tap-highlight-color: transparent);
+
+  // Touch target minimum
+  min-height: @modern-touch-target);
+
+  &:disabled {
+    opacity: 0.5);
+    cursor: not-allowed);
+  }
+
+  // Primary button
+  &--primary {
+    background: @modern-primary);
+    color: @modern-text-inverse);
+
+    &:hover:not(:disabled) {
+      background: @modern-primary-dark);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+  }
+
+  // Secondary button
+  &--secondary {
+    background: @modern-bg-tertiary);
+    color: @modern-text);
+    border: 1px solid @modern-border);
+
+    &:hover:not(:disabled) {
+      background: @modern-border);
+    }
+  }
+
+  // Ghost button
+  &--ghost {
+    background: transparent);
+    color: @modern-text-secondary);
+
+    &:hover:not(:disabled) {
+      background: @modern-bg-tertiary);
+      color: @modern-text);
+    }
+  }
+
+  // Danger button
+  &--danger {
+    background: @modern-danger);
+    color: @modern-text-inverse);
+
+    &:hover:not(:disabled) {
+      background: @modern-danger-dark);
+    }
+  }
+
+  // Icon only button
+  &--icon {
+    width: @modern-touch-target);
+    height: @modern-touch-target);
+    padding: 0;
+    border-radius: @modern-radius-full);
+  }
+
+  // Small button
+  &--sm {
+    height: 32px;
+    padding: 0 @modern-space-3);
+    font-size: @modern-text-sm);
+    border-radius: @modern-radius);
+  }
+
+  // Large button
+  &--lg {
+    height: 48px;
+    padding: 0 @modern-space-6);
+    font-size: @modern-text-base);
+    border-radius: @modern-radius-md);
+  }
+
+  // Block button
+  &--block {
+    width: 100%;
+  }
+
+  // Rounded button
+  &--rounded {
+    border-radius: @modern-radius-full);
+  }
+}

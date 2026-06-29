@@ -1,0 +1,84 @@
+// User Card Styles
+.UserCard {
+  background: @modern-bg);
+  border-radius: @modern-radius-lg);
+  overflow: hidden;
+  box-shadow: @modern-shadow);
+
+  @media (max-width: 767px) {
+    margin: @modern-space-3);
+    border-radius: @modern-radius-lg);
+  }
+
+  // Header banner
+  .UserCard-banner {
+    height: 80px;
+    background: linear-gradient(135deg, @modern-primary, @modern-primary-dark);
+    position: relative;
+  }
+
+  // Avatar
+  .UserCard-avatar {
+    position: absolute;
+    bottom: -30px;
+    left: @modern-space-4);
+    width: 80px;
+    height: 80px;
+    border-radius: @modern-radius-full);
+    border: 4px solid @modern-bg);
+    background: @modern-bg);
+    box-shadow: @modern-shadow);
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: @modern-radius-full);
+    }
+  }
+
+  // Info
+  .UserCard-info {
+    padding: @modern-space-10) @modern-space-4) @modern-space-4);
+  }
+
+  .username {
+    font-size: @modern-text-lg);
+    font-weight: 700);
+    color: @modern-text);
+    margin: 0);
+    display: block;
+  }
+
+  .userDisplayName {
+    font-size: @modern-text-sm);
+    color: @modern-text-secondary);
+    margin: 0);
+  }
+
+  // Badges
+  .UserCard-badges {
+    display: flex;
+    gap: @modern-space-1);
+    margin-top: @modern-space-2);
+
+    .Badge {
+      font-size: 11px);
+      padding: 2px @modern-space-2);
+      border-radius: @modern-radius-full);
+    }
+  }
+
+  // Controls
+  .UserCard-controls {
+    display: flex;
+    gap: @modern-space-2);
+    margin-top: @modern-space-4);
+
+    .Button {
+      flex: 1;
+      height: @modern-touch-target);
+      border-radius: @modern-radius);
+      font-weight: 500);
+    }
+  }
+}

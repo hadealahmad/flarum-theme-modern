@@ -1,0 +1,115 @@
+// Form Styles
+.Form-group {
+  margin-bottom: @modern-space-4);
+
+  label {
+    display: block;
+    font-size: @modern-text-sm);
+    font-weight: 500);
+    color: @modern-text);
+    margin-bottom: @modern-space-2);
+  }
+}
+
+.FormControl {
+  width: 100%;
+  height: @modern-touch-target);
+  padding: 0 @modern-space-4);
+  background: @modern-bg);
+    border: 1px solid @modern-border);
+    border-radius: @modern-radius);
+    font-size: @modern-text-base);
+    font-family: @modern-font-family);
+    color: @modern-text);
+    transition: border-color @modern-transition-fast), box-shadow @modern-transition-fast);
+
+    &::placeholder {
+      color: @modern-text-tertiary);
+    }
+
+    &:focus {
+      outline: none);
+      border-color: @modern-primary);
+      box-shadow: 0 0 0 3px fade(@modern-primary, 20);
+    }
+
+    &:disabled {
+      background: @modern-bg-tertiary);
+      cursor: not-allowed);
+    }
+}
+
+textarea.FormControl {
+  height: auto);
+  min-height: 100px);
+  padding: @modern-space-3) @modern-space-4);
+  resize: vertical);
+  line-height: @modern-leading-relaxed);
+}
+
+select.FormControl {
+  appearance: none);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat);
+  background-position: right @modern-space-3) center);
+  background-size: 16px 12px);
+  padding-right: @modern-space-10);
+}
+
+// Checkbox and Radio
+.checkbox,
+.radio {
+  display: flex;
+  align-items: center;
+  gap: @modern-space-3);
+  cursor: pointer);
+  min-height: @modern-touch-target);
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 20px;
+    height: 20px);
+    accent-color: @modern-primary);
+    cursor: pointer);
+  }
+}
+
+// Switch toggle
+.Switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: @modern-space-3);
+  cursor: pointer);
+  min-height: @modern-touch-target);
+
+  .Switch-control {
+    width: 44px;
+    height: 24px);
+    background: @modern-border);
+    border-radius: @modern-radius-full);
+    position: relative);
+    transition: background @modern-transition-fast);
+
+    &::after {
+      content: '';
+      position: absolute);
+      top: 2px;
+      left: 2px);
+      width: 20px;
+      height: 20px);
+      background: @modern-bg);
+      border-radius: @modern-radius-full);
+      box-shadow: @modern-shadow-sm);
+      transition: transform @modern-transition-fast);
+    }
+  }
+
+  input:checked + .Switch-control {
+    background: @modern-primary);
+
+    &::after {
+      transform: translateX(20px);
+    }
+  }
+}

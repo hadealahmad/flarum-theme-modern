@@ -1,0 +1,70 @@
+// Sidebar Styles
+@media (max-width: 767px) {
+  .IndexPage-sidebar {
+    // Off-canvas drawer on mobile
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: @modern-bg);
+    z-index: @modern-z-modal);
+    transform: translateX(-100%);
+    transition: transform @modern-transition-slow);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch);
+
+    &.sidebarOpen {
+      transform: translateX(0);
+    }
+
+    // Backdrop
+    &::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity @modern-transition-slow);
+
+      &.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  .Sidebarrawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: @modern-bg);
+    z-index: calc(@modern-z-modal + 1);
+    transform: translateX(-100%);
+    transition: transform @modern-transition-slow);
+    overflow-y: auto;
+    box-shadow: @modern-shadow-lg);
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+
+  .sidebar-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: calc(@modern-z-modal);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity @modern-transition-slow);
+
+    &.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}

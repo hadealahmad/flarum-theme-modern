@@ -1,0 +1,114 @@
+// Core Layout Styles
+html {
+  font-family: @modern-font-family;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: @modern-bg-secondary;
+  color: @modern-text;
+  line-height: @modern-leading-normal;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// Hide desktop-only elements on mobile
+@media (max-width: 767px) {
+  .App-content {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: @modern-bottom-nav-height !important;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .App--discussion .App-content {
+    padding-bottom: 0 !important;
+  }
+
+  // Full width container on mobile
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  // Hide sidebar by default on mobile
+  .IndexPage-sidebar,
+  .DiscussionPage-sidebar {
+    display: none !important;
+  }
+
+  // Main content takes full width
+  .IndexPage-results {
+    width: 100% !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .DiscussionPage-nav {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .App-content {
+    padding-left: @modern-sidebar-width;
+    padding-bottom: @modern-space-8;
+  }
+
+  .IndexPage-sidebar {
+    position: fixed;
+    top: @modern-header-height;
+    left: 0;
+    width: @modern-sidebar-width;
+    height: calc(100vh - @modern-header-height);
+    overflow-y: auto;
+    background: @modern-bg;
+    border-right: 1px solid @modern-border;
+    padding: @modern-space-4;
+    z-index: @modern-z-sticky;
+  }
+
+  .IndexPage-results {
+    margin-left: @modern-sidebar-width;
+    max-width: @modern-content-max-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: @modern-secondary-light;
+  border-radius: @modern-radius-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: @modern-secondary;
+}
+
+// Selection
+::selection {
+  background: @modern-primary-light;
+  color: @modern-text;
+}

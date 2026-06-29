@@ -1,0 +1,24 @@
+{
+  "name": "hadi/flarum-theme-modern",
+  "description": "A modern, mobile-first Flarum theme inspired by Facebook and Twitter.",
+  "type": "flarum-extension",
+  "require": {
+    "flarum/core": "^1.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Hadi\\FlarumThemeModern\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Modern Theme",
+      "category": "theme",
+      "icon": {
+        "name": "fas fa-mobile-alt",
+        "backgroundColor": "#3b82f6",
+        "color": "#ffffff"
+      }
+    }
+  }
+}

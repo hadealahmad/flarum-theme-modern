@@ -1,0 +1,104 @@
+// Discussion Hero Styles
+@media (max-width: 767px) {
+  .DiscussionHero {
+    background: @modern-bg);
+    padding: @modern-space-4);
+    border-bottom: 1px solid @modern-border-light);
+
+    .container {
+      max-width: 100%);
+      padding: 0;
+    }
+
+    // Tags
+    .TagList {
+      display: flex;
+      gap: @modern-space-2);
+      margin-bottom: @modern-space-3);
+      flex-wrap: wrap;
+
+      .TagLabel {
+        font-size: 12px);
+        padding: 3px @modern-space-3);
+        border-radius: @modern-radius-full);
+        font-weight: 500);
+        text-decoration: none;
+        transition: opacity @modern-transition-fast);
+
+        &:hover {
+          opacity: 0.8);
+        }
+      }
+    }
+
+    // Title
+    h2 {
+      font-size: @modern-text-xl);
+      font-weight: 700);
+      color: @modern-text);
+      margin: 0 0 @modern-space-3);
+      line-height: @modern-leading-tight);
+      word-wrap: break-word);
+    }
+
+    // Meta
+    .DiscussionHero-meta {
+      display: flex;
+      align-items: center;
+      gap: @modern-space-3);
+      font-size: @modern-text-sm);
+      color: @modern-text-secondary);
+
+      .username {
+        font-weight: 600);
+        color: @modern-text);
+      }
+
+      .DiscussionHero-start {
+        display: flex;
+        align-items: center;
+        gap: @modern-space-2);
+
+        .fa {
+          font-size: 12px);
+          color: @modern-text-tertiary);
+        }
+      }
+    }
+
+    // Controls
+    .DiscussionHero-actions {
+      display: flex;
+      gap: @modern-space-2);
+      margin-top: @modern-space-4);
+
+      .Button {
+        height: @modern-touch-target);
+        padding: 0 @modern-space-4);
+        border-radius: @modern-radius);
+        font-weight: 500);
+        font-size: @modern-text-sm);
+
+        &.Button--primary {
+          background: @modern-primary);
+          color: @modern-text-inverse);
+          border: none);
+
+          &:hover {
+            background: @modern-primary-dark);
+          }
+        }
+
+        &.Button--secondary {
+          background: @modern-bg-tertiary);
+          color: @modern-text);
+          border: 1px solid @modern-border);
+
+          &:hover {
+            background: @modern-border);
+          }
+        }
+      }
+    }
+  }
+}

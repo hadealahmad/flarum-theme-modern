@@ -1,0 +1,164 @@
+// Composer Styles - Mobile Bottom Sheet
+@media (max-width: 767px) {
+  .Composer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: @modern-bg);
+    border-top-left-radius: @modern-radius-xl);
+    border-top-right-radius: @modern-radius-xl);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    z-index: @modern-z-modal);
+    transform: translateY(100%);
+    transition: transform @modern-transition-slow);
+    max-height: 90vh;
+    max-height: 90dvh;
+    display: flex;
+    flex-direction: column;
+
+    &.active,
+    &.Composer--open {
+      transform: translateY(0);
+    }
+
+    // Handle bar
+    &::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 4px;
+      background: @modern-border);
+      border-radius: @modern-radius-full);
+    }
+  }
+
+  .Composer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: @modern-space-4) @modern-space-4) @modern-space-3);
+    padding-top: @modern-space-6); // space for handle
+    border-bottom: 1px solid @modern-border-light);
+
+    .Composer-title {
+      font-size: @modern-text-base);
+      font-weight: 600);
+      color: @modern-text);
+      margin: 0;
+    }
+
+    .Button--cancel {
+      color: @modern-text-secondary);
+      background: transparent;
+      border: none;
+      font-size: @modern-text-sm);
+      font-weight: 500);
+      min-height: @modern-touch-target);
+      padding: 0 @modern-space-3);
+    }
+
+    .Button--submit {
+      background: @modern-primary);
+      color: @modern-text-inverse);
+      border: none;
+      border-radius: @modern-radius-full);
+      font-size: @modern-text-sm);
+      font-weight: 600);
+      min-height: @modern-touch-target);
+      padding: 0 @modern-space-5);
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .Composer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: @modern-space-4);
+    -webkit-overflow-scrolling: touch;
+
+    .TextEditor {
+      min-height: 150px;
+      font-size: @modern-text-base);
+      line-height: @modern-leading-relaxed);
+    }
+  }
+
+  .Composer-controls {
+    display: flex;
+    align-items: center;
+    gap: @modern-space-2);
+    padding: @modern-space-3) @modern-space-4);
+    border-top: 1px solid @modern-border-light);
+    background: @modern-bg-secondary);
+
+    .Button {
+      width: @modern-touch-target);
+      height: @modern-touch-target);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: @modern-radius-full);
+      background: transparent;
+      border: none;
+      color: @modern-text-secondary);
+
+      &:hover {
+        background: @modern-bg-tertiary);
+        color: @modern-primary);
+      }
+    }
+  }
+
+  // Full screen mode for longer content
+  .Composer--fullScreen {
+    max-height: 100vh;
+    max-height: 100dvh;
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .Composer {
+    position: fixed;
+    bottom: @modern-space-6);
+    right: @modern-space-6);
+    width: 500px;
+    background: @modern-bg);
+    border-radius: @modern-radius-lg);
+    box-shadow: @modern-shadow-lg);
+    z-index: @modern-z-modal);
+    overflow: hidden;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .Composer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: @modern-space-3) @modern-space-4);
+    border-bottom: 1px solid @modern-border);
+    background: @modern-bg-secondary);
+
+    .Composer-title {
+      font-size: @modern-text-sm);
+      font-weight: 600);
+      color: @modern-text);
+      margin: 0;
+    }
+  }
+
+  .Composer-body {
+    padding: @modern-space-4);
+    min-height: 200px;
+  }
+}

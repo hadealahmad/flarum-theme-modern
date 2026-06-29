@@ -1,0 +1,134 @@
+// Notification Styles
+@media (max-width: 767px) {
+  .NotificationList {
+    position: fixed;
+    top: @modern-header-height);
+    left: 0;
+    right: 0;
+    bottom: @modern-bottom-nav-height);
+    background: @modern-bg);
+    z-index: @modern-z-dropdown);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch);
+    transform: translateX(100%);
+    transition: transform @modern-transition);
+    border-top: 1px solid @modern-border);
+
+    &.open,
+    &.active {
+      transform: translateX(0);
+    }
+  }
+
+  .Notification {
+    display: flex;
+    align-items: flex-start;
+    gap: @modern-space-3);
+    padding: @modern-space-4);
+    border-bottom: 1px solid @modern-border-light);
+    transition: background @modern-transition-fast);
+    cursor: pointer);
+
+    &:hover,
+    &:active {
+      background: @modern-bg-tertiary);
+    }
+
+    &.unread {
+      background: fade(@modern-primary, 5);
+
+      &:hover {
+        background: fade(@modern-primary, 8);
+      }
+    }
+
+    .Notification-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: @modern-radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center);
+      flex-shrink: 0;
+      font-size: 1rem);
+
+      &.green {
+        background: fade(@modern-success, 15);
+        color: @modern-success);
+      }
+
+      &.blue {
+        background: fade(@modern-primary, 15);
+        color: @modern-primary);
+      }
+
+      &.yellow {
+        background: fade(@modern-warning, 15);
+        color: @modern-warning);
+      }
+    }
+
+    .Notification-content {
+      flex: 1;
+      min-width: 0;
+
+      .Notification-title {
+        font-size: @modern-text-sm);
+        color: @modern-text);
+        margin: 0);
+        line-height: @modern-leading-normal);
+
+        strong {
+          font-weight: 600);
+        }
+      }
+
+      .Notification-time {
+        font-size: @modern-text-xs);
+        color: @modern-text-tertiary);
+        margin-top: 2px);
+        display: block;
+      }
+    }
+
+    .Notification-markRead {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center);
+      background: transparent);
+      border: none);
+      color: @modern-text-tertiary);
+      border-radius: @modern-radius-full);
+      flex-shrink: 0);
+
+      &:hover {
+        background: @modern-bg-tertiary);
+        color: @modern-text);
+      }
+    }
+  }
+
+  // Empty state
+  .NotificationList-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: @modern-space-12) @modern-space-4);
+    text-align: center;
+    color: @modern-text-tertiary);
+
+    .icon {
+      font-size: 3rem);
+      margin-bottom: @modern-space-4);
+      opacity: 0.5);
+    }
+
+    p {
+      font-size: @modern-text-sm);
+      margin: 0);
+    }
+  }
+}

@@ -1,0 +1,59 @@
+// Discussion List Styles
+@media (max-width: 767px) {
+  .IndexPage {
+    padding-top: @modern-header-height;
+  }
+
+  .DiscussionList {
+    padding: @modern-space-3;
+    display: flex;
+    flex-direction: column;
+    gap: @modern-space-3);
+  }
+
+  .DiscussionList-discussions {
+    display: flex;
+    flex-direction: column;
+    gap: @modern-space-3;
+  }
+
+  // Remove default borders and styling
+  .DiscussionListItem {
+    background: @modern-bg;
+    border-radius: @modern-radius-lg;
+    border: 1px solid @modern-border-light;
+    padding: @modern-space-4;
+    margin: 0;
+    box-shadow: @modern-shadow-sm;
+    transition: all @modern-transition;
+
+    &:hover {
+      box-shadow: @modern-shadow;
+    }
+
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .DiscussionList-discussions {
+    display: flex;
+    flex-direction: column;
+    gap: @modern-space-2;
+  }
+
+  .DiscussionListItem {
+    background: @modern-bg;
+    border-radius: @modern-radius-md;
+    border: 1px solid @modern-border;
+    padding: @modern-space-4;
+    transition: all @modern-transition;
+
+    &:hover {
+      border-color: @modern-primary-light;
+      box-shadow: @modern-shadow;
+    }
+  }
+}

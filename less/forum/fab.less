@@ -1,0 +1,65 @@
+// Floating Action Button - Mobile Only
+@media (max-width: 767px) {
+  .FloatingActionButton {
+    position: fixed;
+    bottom: calc(@modern-bottom-nav-height + @modern-space-4);
+    right: @modern-space-4);
+    z-index: @modern-z-sticky);
+    width: 56px;
+    height: 56px;
+    border-radius: @modern-radius-full);
+    background: @modern-primary);
+    color: @modern-text-inverse);
+    border: none;
+    box-shadow: @modern-shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center);
+    cursor: pointer);
+    transition: all @modern-transition);
+    -webkit-tap-highlight-color: transparent);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 20px -4px fade(@modern-primary, 40);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    .Icon {
+      font-size: 1.5rem);
+      margin: 0;
+    }
+
+    // Pulse animation when new content
+    &--pulse {
+      animation: fab-pulse 2s infinite;
+    }
+  }
+
+  @keyframes fab-pulse {
+    0% {
+      box-shadow: 0 0 0 0 fade(@modern-primary, 40);
+    }
+    70% {
+      box-shadow: 0 0 0 15px fade(@modern-primary, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 fade(@modern-primary, 0);
+    }
+  }
+
+  // Hide FAB when scrolling down
+  .FloatingActionButton--hidden {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .FloatingActionButton {
+    display: none !important;
+  }
+}

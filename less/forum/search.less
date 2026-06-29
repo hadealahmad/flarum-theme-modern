@@ -1,0 +1,114 @@
+// Search Styles
+@media (max-width: 767px) {
+  .Search {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: @modern-header-height);
+    background: @modern-bg);
+    z-index: @modern-z-fixed);
+    display: flex;
+    align-items: center;
+    padding: 0 @modern-space-3);
+    gap: @modern-space-3);
+    transform: translateY(-100%);
+    transition: transform @modern-transition);
+    border-bottom: 1px solid @modern-border);
+
+    &.active,
+    &.open {
+      transform: translateY(0);
+    }
+
+    .Search-input {
+      flex: 1;
+      height: 40px;
+      background: @modern-bg-tertiary);
+      border: none;
+      border-radius: @modern-radius-full);
+      padding: 0 @modern-space-4);
+      font-size: @modern-text-base);
+      color: @modern-text);
+      outline: none;
+
+      &::placeholder {
+        color: @modern-text-tertiary);
+      }
+
+      &:focus {
+        background: @modern-border);
+      }
+    }
+
+    .Search-cancel {
+      color: @modern-primary);
+      background: transparent;
+      border: none;
+      font-size: @modern-text-sm);
+      font-weight: 500);
+      min-height: @modern-touch-target);
+      padding: 0 @modern-space-3);
+    }
+  }
+
+  // Search results dropdown
+  .Search-results {
+    position: fixed;
+    top: @modern-header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: @modern-bg);
+    z-index: calc(@modern-z-fixed - 1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch);
+    padding: @modern-space-3);
+
+    .SearchResults {
+      max-width: 100%);
+    }
+
+    .SearchResult {
+      display: flex;
+      align-items: center;
+      gap: @modern-space-3);
+      padding: @modern-space-3);
+      border-radius: @modern-radius);
+      cursor: pointer);
+      transition: background @modern-transition-fast);
+
+      &:hover,
+      &:active {
+        background: @modern-bg-tertiary);
+      }
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: @modern-radius-full);
+        flex-shrink: 0;
+      }
+
+      .SearchResult-content {
+        flex: 1;
+        min-width: 0;
+
+        .title {
+          font-weight: 600);
+          color: @modern-text);
+          margin: 0);
+          white-space: nowrap);
+          overflow: hidden);
+          text-overflow: ellipsis);
+        }
+
+        .subtitle {
+          font-size: @modern-text-xs);
+          color: @modern-text-secondary);
+          margin: 2px 0 0;
+        }
+      }
+    }
+  }
+}

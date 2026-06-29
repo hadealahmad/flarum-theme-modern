@@ -1,0 +1,105 @@
+// Post Actions Styles - Touch Optimized
+@media (max-width: 767px) {
+  .Post-actions {
+    display: flex;
+    align-items: center;
+    gap: @modern-space-1);
+    flex-wrap: wrap;
+
+    .Button {
+      display: flex;
+      align-items: center;
+      gap: @modern-space-2);
+      min-height: @modern-touch-target);
+      padding: @modern-space-2) @modern-space-3);
+      border-radius: @modern-radius-full);
+      background: transparent;
+      border: none;
+      color: @modern-text-secondary);
+      font-size: @modern-text-sm);
+      font-weight: 500;
+      transition: all @modern-transition-fast);
+      -webkit-tap-highlight-color: transparent;
+
+      &:hover {
+        background: @modern-bg-tertiary);
+        color: @modern-text);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      .Button-icon {
+        font-size: 1.125rem);
+      }
+
+      .Button-label {
+        @media (max-width: 380px) {
+          display: none;
+        }
+      }
+    }
+
+    // Like button special styling
+    .Post-actions-like {
+      &.reacted {
+        color: @modern-danger);
+
+        &:hover {
+          background: fade(@modern-danger, 10);
+        }
+      }
+    }
+
+    // Reply button
+    .Post-actions-reply {
+      color: @modern-primary);
+
+      &:hover {
+        background: fade(@modern-primary, 10);
+      }
+    }
+  }
+
+  // Reaction display
+  .Post-reactions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: @modern-space-2);
+    margin-top: @modern-space-3);
+    padding-left: 56px;
+
+    .Reaction {
+      display: flex;
+      align-items: center;
+      gap: @modern-space-1);
+      padding: @modern-space-1) @modern-space-3);
+      background: @modern-bg-tertiary);
+      border-radius: @modern-radius-full);
+      border: 1px solid @modern-border);
+      font-size: @modern-text-sm);
+      cursor: pointer;
+      transition: all @modern-transition-fast);
+
+      &:hover {
+        border-color: @modern-primary-light);
+        background: fade(@modern-primary, 10);
+      }
+
+      &.active {
+        border-color: @modern-primary);
+        background: fade(@modern-primary, 10);
+      }
+
+      .Reaction-emoji {
+        font-size: 1rem;
+      }
+
+      .Reaction-count {
+        font-weight: 600;
+        color: @modern-text);
+      }
+    }
+  }
+}
