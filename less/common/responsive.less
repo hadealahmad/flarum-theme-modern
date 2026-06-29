@@ -2,19 +2,19 @@
 
 .respond-above(@width; @rules) {
   @media (min-width: @width) {
-    @rules();
+    @rules(;
   }
 }
 
 .respond-below(@width; @rules) {
   @media (max-width: (@width - 1px)) {
-    @rules();
+    @rules(;
   }
 }
 
 .respond-between(@min; @max; @rules) {
   @media (min-width: @min) and (max-width: (@max - 1px)) {
-    @rules();
+    @rules(;
   }
 }
 
@@ -22,34 +22,34 @@
 .mobile-only() {
   .respond-below(@modern-screen-md; {
     display: block !important;
-  });
+  };
   .respond-above(@modern-screen-md; {
     display: none !important;
-  });
+  };
 }
 
 .desktop-only() {
   .respond-below(@modern-screen-md; {
     display: none !important;
-  });
+  };
   .respond-above(@modern-screen-md; {
     display: block !important;
-  });
+  };
 }
 
 // Safe area insets for notch devices
 .safe-area-inset-top() {
-  padding-top: env(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top;
 }
 
 .safe-area-inset-bottom() {
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom;
 }
 
 // Touch feedback
 .touch-feedback() {
   &:active {
-    transform: scale(0.98);
+    transform: scale(0.98;
     opacity: 0.9;
   }
   transition: transform @modern-transition-fast, opacity @modern-transition-fast;
@@ -64,15 +64,15 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle, rgba(0,0,0,0.1) 10%, transparent 10.01%);
-    transform: scale(10);
+    background: radial-gradient(circle, rgba(0,0,0,0.1) 10%, transparent 10.01%;
+    transform: scale(10;
     opacity: 0;
     transition: transform 0.4s, opacity 0.8s;
     pointer-events: none;
   }
 
   &:active::after {
-    transform: scale(0);
+    transform: scale(0;
     opacity: 1;
     transition: 0s;
   }

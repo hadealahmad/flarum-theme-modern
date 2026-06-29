@@ -6,7 +6,7 @@
   // Content wrapper
   .DiscussionListItem-content {
     display: flex;
-    gap: @modern-space-3);
+    gap: @modern-space-3;
     align-items: flex-start;
   }
 
@@ -59,10 +59,10 @@
   .DiscussionListItem-meta {
     display: flex;
     align-items: center;
-    gap: @modern-space-2);
+    gap: @modern-space-2;
     font-size: @modern-text-xs;
     color: @modern-text-secondary;
-    margin-bottom: @modern-space-2);
+    margin-bottom: @modern-space-2;
 
     .username {
       font-weight: 600;
@@ -72,7 +72,7 @@
     .DateTime {
       &::before {
         content: '·';
-        margin-right: @modern-space-2);
+        margin-right: @modern-space-2;
       }
     }
   }
@@ -80,27 +80,27 @@
   // Preview/Excerpt
   .DiscussionListItem-preview {
     font-size: @modern-text-sm;
-    color: @modern-text-secondary);
-    line-height: @modern-leading-relaxed);
+    color: @modern-text-secondary;
+    line-height: @modern-leading-relaxed;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: @modern-space-3);
+    margin-bottom: @modern-space-3;
   }
 
   // Stats row
   .DiscussionListItem-info {
     display: flex;
     align-items: center;
-    gap: @modern-space-4);
+    gap: @modern-space-4;
     font-size: @modern-text-xs;
-    color: @modern-text-tertiary);
+    color: @modern-text-tertiary;
 
     .ItemContent-meta {
       display: flex;
       align-items: center;
-      gap: @modern-space-2);
+      gap: @modern-space-2;
 
       .fa {
         font-size: 12px;
@@ -111,43 +111,43 @@
   // Tag badges
   .TagList {
     display: flex;
-    gap: @modern-space-1);
+    gap: @modern-space-1;
     flex-wrap: wrap;
-    margin-bottom: @modern-space-2);
+    margin-bottom: @modern-space-2;
 
     .TagLabel {
       font-size: 11px;
-      padding: 2px @modern-space-2);
-      border-radius: @modern-radius-full);
-      background: @modern-bg-tertiary);
-      color: @modern-text-secondary);
-      font-weight: 500);
+      padding: 2px @modern-space-2;
+      border-radius: @modern-radius-full;
+      background: @modern-bg-tertiary;
+      color: @modern-text-secondary;
+      font-weight: 500;
     }
   }
 
   // Indicators (unread, etc)
   .DiscussionListItem-indicator {
     position: absolute;
-    top: @modern-space-4);
-    right: @modern-space-4);
+    top: @modern-space-4;
+    right: @modern-space-4;
 
     .Badge {
-      background: @modern-primary);
-      color: @modern-text-inverse);
-      font-size: 11px);
-      padding: 2px 6px);
-      border-radius: @modern-radius-full);
-      font-weight: 600);
+      background: @modern-primary;
+      color: @modern-text-inverse;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: @modern-radius-full;
+      font-weight: 600;
     }
   }
 
   // Controls (for desktop)
   .DiscussionListItem-controls {
     position: absolute;
-    top: @modern-space-3);
-    right: @modern-space-3);
+    top: @modern-space-3;
+    right: @modern-space-3;
     opacity: 0;
-    transition: opacity @modern-transition-fast);
+    transition: opacity @modern-transition-fast;
 
     @media (max-width: 767px) {
       display: none;
