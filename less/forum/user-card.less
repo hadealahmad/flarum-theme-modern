@@ -1,4 +1,5 @@
-// User Card - Modern Profile Card
+// User Card - Modern Profile Card with RTL support
+
 .UserCard {
   background: var(--m-surface);
   border-radius: @modern-radius-lg;
@@ -26,7 +27,7 @@
   .UserCard-avatar {
     position: absolute;
     bottom: -32px;
-    left: @modern-space-4;
+    inset-inline-start: @modern-space-4;
     width: 80px;
     height: 80px;
     border-radius: @modern-radius-full;

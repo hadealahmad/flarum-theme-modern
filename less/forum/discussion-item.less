@@ -1,4 +1,5 @@
-// Discussion List Item Styles - Card Design
+// Discussion List Item Styles - Card Design with RTL support
+
 .DiscussionListItem {
   position: relative;
   cursor: pointer;
@@ -71,7 +72,7 @@
     .DateTime {
       &::before {
         content: '\00B7';
-        margin-right: @modern-space-2;
+        margin-inline-start: @modern-space-2;
         color: var(--m-text-tertiary);
       }
     }
@@ -134,7 +135,7 @@
   .DiscussionListItem-indicator {
     position: absolute;
     top: @modern-space-4;
-    right: @modern-space-4;
+    inset-inline-end: @modern-space-4;
 
     .Badge {
       background: var(--m-gradient-primary);
@@ -150,7 +151,7 @@
   .DiscussionListItem-controls {
     position: absolute;
     top: @modern-space-3;
-    right: @modern-space-3;
+    inset-inline-end: @modern-space-3;
     opacity: 0;
     transition: opacity var(--m-transition-fast);
 

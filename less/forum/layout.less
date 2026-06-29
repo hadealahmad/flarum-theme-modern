@@ -31,19 +31,17 @@ body {
     margin-left: 0 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
-    padding-bottom: @modern-bottom-nav-height !important;
+    padding-bottom: calc(@modern-bottom-nav-height + env(safe-area-inset-bottom, 0px)) !important;
     min-height: 100vh;
     min-height: 100dvh;
   }
 
-  .App--discussion .App-content {
-    padding-bottom: 0 !important;
-  }
-
   .container {
     max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    padding-inline-start: 0 !important;
+    padding-inline-end: 0 !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
     width: 100% !important;
   }
 
@@ -57,10 +55,6 @@ body {
     float: none !important;
     margin: 0 !important;
     padding: 0 !important;
-  }
-
-  .DiscussionPage-nav {
-    display: none !important;
   }
 }
 
@@ -114,4 +108,13 @@ body {
 ::selection {
   background: var(--m-primary-glow);
   color: var(--m-text);
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,105 +1,104 @@
-// Discussion Hero - Clean Header
-@media (max-width: 767px) {
-  .DiscussionHero {
-    background: var(--m-surface);
-    padding: @modern-space-4;
-    border-bottom: 1px solid var(--m-border-light);
+// Discussion Hero - Clean Header with RTL support
 
-    .container {
-      max-width: 100%;
-      padding: 0;
-    }
+.DiscussionHero {
+  background: var(--m-surface);
+  padding: @modern-space-4;
+  border-bottom: 1px solid var(--m-border-light);
 
-    .TagList {
-      display: flex;
-      gap: @modern-space-2;
-      margin-bottom: @modern-space-3;
-      flex-wrap: wrap;
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
 
-      .TagLabel {
-        font-size: 12px;
-        padding: 3px @modern-space-3;
-        border-radius: @modern-radius-full;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all var(--m-transition-fast);
-        background: var(--m-bg-tertiary);
-        color: var(--m-text-secondary);
+  .TagList {
+    display: flex;
+    gap: @modern-space-2;
+    margin-bottom: @modern-space-3;
+    flex-wrap: wrap;
 
-        &:hover {
-          background: var(--m-primary-glow);
-          color: var(--m-primary);
-        }
-      }
-    }
-
-    h2 {
-      font-size: @modern-text-xl;
-      font-weight: 800;
-      color: var(--m-text);
-      margin: 0 0 @modern-space-3;
-      line-height: @modern-leading-tight;
-      word-wrap: break-word;
-      letter-spacing: -0.02em;
-    }
-
-    .DiscussionHero-meta {
-      display: flex;
-      align-items: center;
-      gap: @modern-space-3;
-      font-size: @modern-text-sm;
+    .TagLabel {
+      font-size: 12px;
+      padding: 3px @modern-space-3;
+      border-radius: @modern-radius-full;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--m-transition-fast);
+      background: var(--m-bg-tertiary);
       color: var(--m-text-secondary);
 
-      .username {
-        font-weight: 600;
-        color: var(--m-text);
-      }
-
-      .DiscussionHero-start {
-        display: flex;
-        align-items: center;
-        gap: @modern-space-2;
-
-        .fa {
-          font-size: 12px;
-          color: var(--m-text-tertiary);
-        }
+      &:hover {
+        background: var(--m-primary-glow);
+        color: var(--m-primary);
       }
     }
+  }
 
-    .DiscussionHero-actions {
+  h2 {
+    font-size: @modern-text-xl;
+    font-weight: 800;
+    color: var(--m-text);
+    margin: 0 0 @modern-space-3;
+    line-height: @modern-leading-tight;
+    word-wrap: break-word;
+    letter-spacing: -0.02em;
+  }
+
+  .DiscussionHero-meta {
+    display: flex;
+    align-items: center;
+    gap: @modern-space-3;
+    font-size: @modern-text-sm;
+    color: var(--m-text-secondary);
+
+    .username {
+      font-weight: 600;
+      color: var(--m-text);
+    }
+
+    .DiscussionHero-start {
       display: flex;
+      align-items: center;
       gap: @modern-space-2;
-      margin-top: @modern-space-4;
 
-      .Button {
-        height: @modern-touch-target;
-        padding: 0 @modern-space-4;
-        border-radius: @modern-radius-md;
-        font-weight: 600;
-        font-size: @modern-text-sm;
-        transition: all var(--m-transition-fast);
+      .fa {
+        font-size: 12px;
+        color: var(--m-text-tertiary);
+      }
+    }
+  }
 
-        &.Button--primary {
-          background: var(--m-gradient-primary);
-          color: #ffffff;
-          border: none;
-          box-shadow: var(--m-shadow-primary);
+  .DiscussionHero-actions {
+    display: flex;
+    gap: @modern-space-2;
+    margin-top: @modern-space-4;
 
-          &:hover {
-            box-shadow: var(--m-shadow-primary-lg);
-            transform: translateY(-1px);
-          }
+    .Button {
+      height: @modern-touch-target;
+      padding: 0 @modern-space-4;
+      border-radius: @modern-radius-md;
+      font-weight: 600;
+      font-size: @modern-text-sm;
+      transition: all var(--m-transition-fast);
+
+      &.Button--primary {
+        background: var(--m-gradient-primary);
+        color: #ffffff;
+        border: none;
+        box-shadow: var(--m-shadow-primary);
+
+        &:hover {
+          box-shadow: var(--m-shadow-primary-lg);
+          transform: translateY(-1px);
         }
+      }
 
-        &.Button--secondary {
-          background: var(--m-bg-secondary);
-          color: var(--m-text);
-          border: 1px solid var(--m-border);
+      &.Button--secondary {
+        background: var(--m-bg-secondary);
+        color: var(--m-text);
+        border: 1px solid var(--m-border);
 
-          &:hover {
-            background: var(--m-bg-tertiary);
-          }
+        &:hover {
+          background: var(--m-bg-tertiary);
         }
       }
     }

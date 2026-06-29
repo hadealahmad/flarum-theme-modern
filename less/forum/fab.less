@@ -1,60 +1,59 @@
-// Floating Action Button - Gradient with Glow
-@media (max-width: 767px) {
-  .FloatingActionButton {
-    position: fixed;
-    bottom: calc(@modern-bottom-nav-height + @modern-space-4);
-    right: @modern-space-4;
-    z-index: @modern-z-sticky;
-    width: 56px;
-    height: 56px;
-    border-radius: @modern-radius-full;
-    background: var(--m-gradient-primary);
-    color: #ffffff;
-    border: none;
-    box-shadow: var(--m-shadow-primary-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all var(--m-transition);
-    -webkit-tap-highlight-color: transparent;
+// Floating Action Button - Gradient with Glow, RTL support
 
-    &:hover {
-      transform: scale(1.08) rotate(90deg);
-      box-shadow: 0 14px 36px -4px var(--m-primary-glow);
-    }
+.FloatingActionButton {
+  position: fixed;
+  bottom: calc(@modern-bottom-nav-height + @modern-space-4);
+  inset-inline-end: @modern-space-4;
+  z-index: @modern-z-sticky;
+  width: 56px;
+  height: 56px;
+  border-radius: @modern-radius-full;
+  background: var(--m-gradient-primary);
+  color: #ffffff;
+  border: none;
+  box-shadow: var(--m-shadow-primary-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--m-transition);
+  -webkit-tap-highlight-color: transparent;
 
-    &:active {
-      transform: scale(0.92) rotate(90deg);
-    }
-
-    .Icon {
-      font-size: 1.5rem;
-      margin: 0;
-      transition: transform var(--m-transition-spring);
-    }
-
-    &--pulse {
-      animation: fab-pulse 2.5s infinite;
-    }
+  &:hover {
+    transform: scale(1.08) rotate(90deg);
+    box-shadow: 0 14px 36px -4px var(--m-primary-glow);
   }
 
-  @keyframes fab-pulse {
-    0% {
-      box-shadow: 0 0 0 0 var(--m-primary-glow), var(--m-shadow-primary-lg);
-    }
-    70% {
-      box-shadow: 0 0 0 16px rgba(99, 102, 241, 0), var(--m-shadow-primary-lg);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(99, 102, 241, 0), var(--m-shadow-primary-lg);
-    }
+  &:active {
+    transform: scale(0.92) rotate(90deg);
   }
 
-  .FloatingActionButton--hidden {
-    transform: scale(0) rotate(-90deg);
-    opacity: 0;
+  .Icon {
+    font-size: 1.5rem;
+    margin: 0;
+    transition: transform var(--m-transition-spring);
   }
+
+  &--pulse {
+    animation: fab-pulse 2.5s infinite;
+  }
+}
+
+@keyframes fab-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--m-primary-glow), var(--m-shadow-primary-lg);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(99, 102, 241, 0), var(--m-shadow-primary-lg);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0), var(--m-shadow-primary-lg);
+  }
+}
+
+.FloatingActionButton--hidden {
+  transform: scale(0) rotate(-90deg);
+  opacity: 0;
 }
 
 @media (min-width: 768px) {

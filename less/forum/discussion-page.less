@@ -1,66 +1,66 @@
-// Discussion Page Styles - Mobile Reading
-@media (max-width: 767px) {
-  .DiscussionPage {
-    padding-top: @modern-header-height;
-    min-height: 100vh;
-    min-height: 100dvh;
-    background: var(--m-bg);
+// Discussion Page Styles - Mobile Reading with RTL support
+
+.DiscussionPage {
+  padding-top: @modern-header-height;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--m-bg);
+}
+
+.DiscussionPage-nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: @modern-header-height;
+  background: var(--m-header-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--m-border);
+  z-index: @modern-z-fixed;
+  padding-inline-start: @modern-space-3;
+  padding-inline-end: @modern-space-3;
+  align-items: center;
+  gap: @modern-space-3;
+  .safe-area-inset-top();
+
+  .Button--back {
+    width: @modern-touch-target;
+    height: @modern-touch-target;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--m-primary);
+    border-radius: @modern-radius-full;
+    transition: all var(--m-transition-fast);
+
+    &:hover {
+      background: var(--m-primary-glow);
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+
+    .icon {
+      font-size: 1.25rem;
+    }
   }
 
-  .DiscussionPage-nav {
-    display: flex !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: @modern-header-height;
-    background: var(--m-header-bg);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border-bottom: 1px solid var(--m-border);
-    z-index: @modern-z-fixed;
-    padding: 0 @modern-space-3;
-    align-items: center;
-    gap: @modern-space-3;
-    .safe-area-inset-top();
-
-    .Button--back {
-      width: @modern-touch-target;
-      height: @modern-touch-target;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: transparent;
-      border: none;
-      color: var(--m-primary);
-      border-radius: @modern-radius-full;
-      transition: all var(--m-transition-fast);
-
-      &:hover {
-        background: var(--m-primary-glow);
-      }
-
-      &:active {
-        transform: scale(0.9);
-      }
-
-      .icon {
-        font-size: 1.25rem;
-      }
-    }
-
-    .DiscussionPage-title {
-      flex: 1;
-      font-size: @modern-text-base;
-      font-weight: 700;
-      color: var(--m-text);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin: 0;
-      letter-spacing: -0.01em;
-    }
+  .DiscussionPage-title {
+    flex: 1;
+    font-size: @modern-text-base;
+    font-weight: 700;
+    color: var(--m-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    letter-spacing: -0.01em;
   }
 }
 

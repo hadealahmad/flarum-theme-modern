@@ -1,53 +1,52 @@
-// Sidebar Styles - Mobile Drawer
-@media (max-width: 767px) {
-  .IndexPage-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--m-surface);
-    z-index: @modern-z-modal;
-    transform: translateX(-100%);
-    transition: transform var(--m-transition-slow);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+// Sidebar Styles - Mobile Drawer with RTL support
 
-    &.sidebarOpen {
-      transform: translateX(0);
-    }
+.IndexPage-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--m-surface);
+  z-index: @modern-z-modal;
+  transform: translateX(-100%);
+  transition: transform var(--m-transition-slow);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &.sidebarOpen {
+    transform: translateX(0);
   }
+}
 
-  .SidebarDrawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 280px;
-    height: 100%;
-    background: var(--m-surface);
-    z-index: @modern-z-modal + 1;
-    transform: translateX(-100%);
-    transition: transform var(--m-transition-slow);
-    overflow-y: auto;
-    box-shadow: var(--m-shadow-xl);
+.SidebarDrawer {
+  position: fixed;
+  top: 0;
+  inset-inline-start: 0;
+  width: 280px;
+  height: 100%;
+  background: var(--m-surface);
+  z-index: @modern-z-modal + 1;
+  transform: translateX(-100%);
+  transition: transform var(--m-transition-slow);
+  overflow-y: auto;
+  box-shadow: var(--m-shadow-xl);
 
-    &.open {
-      transform: translateX(0);
-    }
+  &.open {
+    transform: translateX(0);
   }
+}
 
-  .sidebar-drawer-backdrop {
-    position: fixed;
-    inset: 0;
-    background: var(--m-overlay);
-    z-index: @modern-z-modal;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--m-transition-slow);
+.sidebar-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--m-overlay);
+  z-index: @modern-z-modal;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--m-transition-slow);
 
-    &.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
