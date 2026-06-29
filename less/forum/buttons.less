@@ -1,73 +1,72 @@
-// Button Styles
+// Button Styles - Refined Design System
 .Button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: @modern-space-2;
   font-family: @modern-font-family;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   border: none;
   outline: none;
-  transition: all @modern-transition-fast;
+  transition: all var(--m-transition-fast);
   -webkit-tap-highlight-color: transparent;
-
-  // Touch target minimum
   min-height: @modern-touch-target;
+  letter-spacing: -0.01em;
 
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
 
-  // Primary button
   &--primary {
-    background: @modern-primary;
-    color: @modern-text-inverse;
+    background: var(--m-gradient-primary);
+    color: #ffffff;
+    box-shadow: var(--m-shadow-primary);
 
     &:hover:not(:disabled) {
-      background: @modern-primary-dark;
+      box-shadow: var(--m-shadow-primary-lg);
+      transform: translateY(-1px);
     }
 
     &:active:not(:disabled) {
-      transform: scale(0.98);
+      transform: scale(0.97);
     }
   }
 
-  // Secondary button
   &--secondary {
-    background: @modern-bg-tertiary;
-    color: @modern-text;
-    border: 1px solid @modern-border;
+    background: var(--m-bg-secondary);
+    color: var(--m-text);
+    border: 1px solid var(--m-border);
 
     &:hover:not(:disabled) {
-      background: @modern-border;
+      background: var(--m-bg-tertiary);
+      border-color: var(--m-border-strong);
     }
   }
 
-  // Ghost button
   &--ghost {
     background: transparent;
-    color: @modern-text-secondary;
+    color: var(--m-text-secondary);
 
     &:hover:not(:disabled) {
-      background: @modern-bg-tertiary;
-      color: @modern-text;
+      background: var(--m-bg-tertiary);
+      color: var(--m-text);
     }
   }
 
-  // Danger button
   &--danger {
-    background: @modern-danger;
-    color: @modern-text-inverse;
+    background: var(--m-danger);
+    color: #ffffff;
+    box-shadow: 0 4px 14px 0 var(--m-danger-glow);
 
     &:hover:not(:disabled) {
-      background: @modern-danger-dark;
+      background: var(--m-danger-dark);
+      transform: translateY(-1px);
     }
   }
 
-  // Icon only button
   &--icon {
     width: @modern-touch-target;
     height: @modern-touch-target;
@@ -75,28 +74,26 @@
     border-radius: @modern-radius-full;
   }
 
-  // Small button
   &--sm {
     height: 32px;
     padding: 0 @modern-space-3;
     font-size: @modern-text-sm;
     border-radius: @modern-radius;
+    min-height: 32px;
   }
 
-  // Large button
   &--lg {
     height: 48px;
     padding: 0 @modern-space-6;
     font-size: @modern-text-base;
     border-radius: @modern-radius-md;
+    min-height: 48px;
   }
 
-  // Block button
   &--block {
     width: 100%;
   }
 
-  // Rounded button
   &--rounded {
     border-radius: @modern-radius-full;
   }

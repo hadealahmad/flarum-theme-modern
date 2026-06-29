@@ -1,38 +1,43 @@
-// Composer Styles - Mobile Bottom Sheet
+// Composer - Bottom Sheet with Smooth Animations
 @media (max-width: 767px) {
   .Composer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: @modern-bg;
+    background: var(--m-surface);
     border-top-left-radius: @modern-radius-xl;
     border-top-right-radius: @modern-radius-xl;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
     z-index: @modern-z-modal;
     transform: translateY(100%);
-    transition: transform @modern-transition-slow;
+    transition: transform var(--m-transition-slow);
     max-height: 90vh;
     max-height: 90dvh;
     display: flex;
     flex-direction: column;
+    border-top: 1px solid var(--m-border);
 
     &.active,
     &.Composer--open {
       transform: translateY(0);
     }
 
-    // Handle bar
     &::before {
       content: '';
       position: absolute;
       top: 8px;
       left: 50%;
       transform: translateX(-50%);
-      width: 40px;
+      width: 36px;
       height: 4px;
-      background: @modern-border;
+      background: var(--m-border-strong);
       border-radius: @modern-radius-full;
+      transition: background var(--m-transition-fast);
+    }
+
+    &:hover::before {
+      background: var(--m-secondary-light);
     }
   }
 
@@ -40,38 +45,58 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: @modern-space-6 @modern-space-4 @modern-space-3;
-    border-bottom: 1px solid @modern-border-light;
+    padding: @modern-space-5 @modern-space-4 @modern-space-3;
+    border-bottom: 1px solid var(--m-border-light);
 
     .Composer-title {
       font-size: @modern-text-base;
-      font-weight: 600;
-      color: @modern-text;
+      font-weight: 700;
+      color: var(--m-text);
       margin: 0;
+      letter-spacing: -0.01em;
     }
 
     .Button--cancel {
-      color: @modern-text-secondary;
+      color: var(--m-text-secondary);
       background: transparent;
       border: none;
       font-size: @modern-text-sm;
-      font-weight: 500;
+      font-weight: 600;
       min-height: @modern-touch-target;
       padding: 0 @modern-space-3;
+      border-radius: @modern-radius-full;
+      transition: all var(--m-transition-fast);
+
+      &:hover {
+        background: var(--m-bg-tertiary);
+        color: var(--m-text);
+      }
     }
 
     .Button--submit {
-      background: @modern-primary;
-      color: @modern-text-inverse;
+      background: var(--m-gradient-primary);
+      color: #ffffff;
       border: none;
       border-radius: @modern-radius-full;
       font-size: @modern-text-sm;
-      font-weight: 600;
+      font-weight: 700;
       min-height: @modern-touch-target;
       padding: 0 @modern-space-5;
+      box-shadow: var(--m-shadow-primary);
+      transition: all var(--m-transition-fast);
+
+      &:hover:not(:disabled) {
+        box-shadow: var(--m-shadow-primary-lg);
+        transform: translateY(-1px);
+      }
+
+      &:active:not(:disabled) {
+        transform: scale(0.97);
+      }
 
       &:disabled {
         opacity: 0.5;
+        box-shadow: none;
       }
     }
   }
@@ -86,6 +111,13 @@
       min-height: 150px;
       font-size: @modern-text-base;
       line-height: @modern-leading-relaxed;
+      font-family: @modern-font-family;
+      color: var(--m-text);
+      background: transparent;
+      border: none;
+      outline: none;
+      resize: none;
+      width: 100%;
     }
   }
 
@@ -94,8 +126,8 @@
     align-items: center;
     gap: @modern-space-2;
     padding: @modern-space-3 @modern-space-4;
-    border-top: 1px solid @modern-border-light;
-    background: @modern-bg-secondary;
+    border-top: 1px solid var(--m-border-light);
+    background: var(--m-bg-secondary);
 
     .Button {
       width: @modern-touch-target;
@@ -106,16 +138,20 @@
       border-radius: @modern-radius-full;
       background: transparent;
       border: none;
-      color: @modern-text-secondary;
+      color: var(--m-text-secondary);
+      transition: all var(--m-transition-fast);
 
       &:hover {
-        background: @modern-bg-tertiary;
-        color: @modern-primary;
+        background: var(--m-bg-tertiary);
+        color: var(--m-primary);
+      }
+
+      &:active {
+        transform: scale(0.9);
       }
     }
   }
 
-  // Full screen mode for longer content
   .Composer--fullScreen {
     max-height: 100vh;
     max-height: 100dvh;
@@ -128,12 +164,13 @@
     position: fixed;
     bottom: @modern-space-6;
     right: @modern-space-6;
-    width: 500px;
-    background: @modern-bg;
+    width: 540px;
+    background: var(--m-surface);
     border-radius: @modern-radius-lg;
-    box-shadow: @modern-shadow-lg;
+    box-shadow: var(--m-shadow-xl);
     z-index: @modern-z-modal;
     overflow: hidden;
+    border: 1px solid var(--m-border);
 
     &.active {
       display: block;
@@ -145,13 +182,13 @@
     align-items: center;
     justify-content: space-between;
     padding: @modern-space-3 @modern-space-4;
-    border-bottom: 1px solid @modern-border;
-    background: @modern-bg-secondary;
+    border-bottom: 1px solid var(--m-border);
+    background: var(--m-bg-secondary);
 
     .Composer-title {
       font-size: @modern-text-sm;
-      font-weight: 600;
-      color: @modern-text;
+      font-weight: 700;
+      color: var(--m-text);
       margin: 0;
     }
   }

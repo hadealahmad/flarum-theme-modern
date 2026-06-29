@@ -1,26 +1,31 @@
 // Core Layout Styles
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 html {
   font-family: @modern-font-family;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.011em;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: @modern-bg-secondary;
-  color: @modern-text;
+  background: var(--m-bg);
+  color: var(--m-text);
   line-height: @modern-leading-normal;
   overflow-x: hidden;
+  transition: background var(--m-transition), color var(--m-transition);
 }
 
 * {
   box-sizing: border-box;
 }
 
-// Hide desktop-only elements on mobile
+// Mobile layout
 @media (max-width: 767px) {
   .App-content {
     margin-left: 0 !important;
@@ -35,7 +40,6 @@ body {
     padding-bottom: 0 !important;
   }
 
-  // Full width container on mobile
   .container {
     max-width: 100% !important;
     padding: 0 !important;
@@ -43,13 +47,11 @@ body {
     width: 100% !important;
   }
 
-  // Hide sidebar by default on mobile
   .IndexPage-sidebar,
   .DiscussionPage-sidebar {
     display: none !important;
   }
 
-  // Main content takes full width
   .IndexPage-results {
     width: 100% !important;
     float: none !important;
@@ -62,6 +64,7 @@ body {
   }
 }
 
+// Desktop layout
 @media (min-width: 768px) {
   .App-content {
     padding-left: @modern-sidebar-width;
@@ -75,23 +78,24 @@ body {
     width: @modern-sidebar-width;
     height: calc(100vh - @modern-header-height);
     overflow-y: auto;
-    background: @modern-bg;
-    border-right: 1px solid @modern-border;
+    background: var(--m-surface);
+    border-right: 1px solid var(--m-border);
     padding: @modern-space-4;
     z-index: @modern-z-sticky;
   }
 
   .IndexPage-results {
-    margin-left: @modern-sidebar-width;
     max-width: @modern-content-max-width;
     margin-left: auto;
     margin-right: auto;
+    padding: @modern-space-4;
   }
 }
 
-// Scrollbar styling
+// Custom scrollbar
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -99,16 +103,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: @modern-secondary-light;
+  background: var(--m-border-strong);
   border-radius: @modern-radius-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: @modern-secondary;
+  background: var(--m-secondary);
 }
 
-// Selection
 ::selection {
-  background: @modern-primary-light;
-  color: @modern-text;
+  background: var(--m-primary-glow);
+  color: var(--m-text);
 }

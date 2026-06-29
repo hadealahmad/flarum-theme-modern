@@ -1,16 +1,15 @@
-// Discussion Hero Styles
+// Discussion Hero - Clean Header
 @media (max-width: 767px) {
   .DiscussionHero {
-    background: @modern-bg;
+    background: var(--m-surface);
     padding: @modern-space-4;
-    border-bottom: 1px solid @modern-border-light;
+    border-bottom: 1px solid var(--m-border-light);
 
     .container {
       max-width: 100%;
       padding: 0;
     }
 
-    // Tags
     .TagList {
       display: flex;
       gap: @modern-space-2;
@@ -21,37 +20,39 @@
         font-size: 12px;
         padding: 3px @modern-space-3;
         border-radius: @modern-radius-full;
-        font-weight: 500;
+        font-weight: 600;
         text-decoration: none;
-        transition: opacity @modern-transition-fast;
+        transition: all var(--m-transition-fast);
+        background: var(--m-bg-tertiary);
+        color: var(--m-text-secondary);
 
         &:hover {
-          opacity: 0.8;
+          background: var(--m-primary-glow);
+          color: var(--m-primary);
         }
       }
     }
 
-    // Title
     h2 {
       font-size: @modern-text-xl;
-      font-weight: 700;
-      color: @modern-text;
+      font-weight: 800;
+      color: var(--m-text);
       margin: 0 0 @modern-space-3;
       line-height: @modern-leading-tight;
       word-wrap: break-word;
+      letter-spacing: -0.02em;
     }
 
-    // Meta
     .DiscussionHero-meta {
       display: flex;
       align-items: center;
       gap: @modern-space-3;
       font-size: @modern-text-sm;
-      color: @modern-text-secondary;
+      color: var(--m-text-secondary);
 
       .username {
         font-weight: 600;
-        color: @modern-text;
+        color: var(--m-text);
       }
 
       .DiscussionHero-start {
@@ -61,12 +62,11 @@
 
         .fa {
           font-size: 12px;
-          color: @modern-text-tertiary;
+          color: var(--m-text-tertiary);
         }
       }
     }
 
-    // Controls
     .DiscussionHero-actions {
       display: flex;
       gap: @modern-space-2;
@@ -75,27 +75,30 @@
       .Button {
         height: @modern-touch-target;
         padding: 0 @modern-space-4;
-        border-radius: @modern-radius;
-        font-weight: 500;
+        border-radius: @modern-radius-md;
+        font-weight: 600;
         font-size: @modern-text-sm;
+        transition: all var(--m-transition-fast);
 
         &.Button--primary {
-          background: @modern-primary;
-          color: @modern-text-inverse;
+          background: var(--m-gradient-primary);
+          color: #ffffff;
           border: none;
+          box-shadow: var(--m-shadow-primary);
 
           &:hover {
-            background: @modern-primary-dark;
+            box-shadow: var(--m-shadow-primary-lg);
+            transform: translateY(-1px);
           }
         }
 
         &.Button--secondary {
-          background: @modern-bg-tertiary;
-          color: @modern-text;
-          border: 1px solid @modern-border;
+          background: var(--m-bg-secondary);
+          color: var(--m-text);
+          border: 1px solid var(--m-border);
 
           &:hover {
-            background: @modern-border;
+            background: var(--m-bg-tertiary);
           }
         }
       }

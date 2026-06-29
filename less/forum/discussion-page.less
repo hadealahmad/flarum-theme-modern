@@ -1,13 +1,12 @@
-// Discussion Page Styles
+// Discussion Page Styles - Mobile Reading
 @media (max-width: 767px) {
   .DiscussionPage {
     padding-top: @modern-header-height;
     min-height: 100vh;
     min-height: 100dvh;
-    background: @modern-bg;
+    background: var(--m-bg);
   }
 
-  // Mobile back button header
   .DiscussionPage-nav {
     display: flex !important;
     position: fixed;
@@ -15,8 +14,10 @@
     left: 0;
     right: 0;
     height: @modern-header-height;
-    background: @modern-bg;
-    border-bottom: 1px solid @modern-border;
+    background: var(--m-header-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid var(--m-border);
     z-index: @modern-z-fixed;
     padding: 0 @modern-space-3;
     align-items: center;
@@ -32,11 +33,16 @@
       justify-content: center;
       background: transparent;
       border: none;
-      color: @modern-primary;
+      color: var(--m-primary);
       border-radius: @modern-radius-full;
+      transition: all var(--m-transition-fast);
 
       &:hover {
-        background: @modern-bg-tertiary;
+        background: var(--m-primary-glow);
+      }
+
+      &:active {
+        transform: scale(0.9);
       }
 
       .icon {
@@ -47,12 +53,13 @@
     .DiscussionPage-title {
       flex: 1;
       font-size: @modern-text-base;
-      font-weight: 600;
-      color: @modern-text;
+      font-weight: 700;
+      color: var(--m-text);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       margin: 0;
+      letter-spacing: -0.01em;
     }
   }
 }
@@ -60,7 +67,6 @@
 @media (min-width: 768px) {
   .DiscussionPage {
     padding-top: @modern-header-height;
-    padding-left: @modern-sidebar-width;
   }
 
   .DiscussionPage-nav {

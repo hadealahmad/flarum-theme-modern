@@ -4,13 +4,21 @@ import icon from 'flarum/common/helpers/icon';
 export default class BottomNav extends Component {
   oninit(vnode) {
     super.oninit(vnode);
-    this.activeTab = 'home';
+    this.activeTab = this.getCurrentTab();
+  }
+
+  getCurrentTab() {
+    const route = m.route.get();
+    if (route.startsWith('/u/')) return 'profile';
+    if (route.startsWith('/search')) return 'search';
+    if (route.includes('notifications')) return 'notifications';
+    return 'home';
   }
 
   view() {
     const items = [
-      { id: 'home', icon: 'fas fa-home', label: 'Home', onclick: () => this.goHome() },
-      { id: 'search', icon: 'fas fa-search', label: 'Search', onclick: () => this.openSearch() },
+      { id: 'home', icon: 'fas fa-house', label: 'Home', onclick: () => this.goHome() },
+      { id: 'search', icon: 'fas fa-magnifying-glass', label: 'Search', onclick: () => this.openSearch() },
       { id: 'notifications', icon: 'fas fa-bell', label: 'Alerts', onclick: () => this.openNotifications(), badge: this.getNotificationCount() },
       { id: 'profile', icon: 'fas fa-user', label: 'Profile', onclick: () => this.goProfile() },
     ];
@@ -21,6 +29,7 @@ export default class BottomNav extends Component {
           <button
             className={`BottomNav-item ${this.activeTab === item.id ? 'BottomNav-item--active' : ''}`}
             onclick={item.onclick}
+            aria-label={item.label}
           >
             {icon(item.icon)}
             <span className="Button-label">{item.label}</span>
@@ -40,14 +49,12 @@ export default class BottomNav extends Component {
 
   openSearch() {
     this.activeTab = 'search';
-    // Trigger search modal
     const searchToggle = document.querySelector('.Search-toggle');
     if (searchToggle) searchToggle.click();
   }
 
   openNotifications() {
     this.activeTab = 'notifications';
-    // Trigger notifications dropdown
     const notifButton = document.querySelector('.NotificationsButton');
     if (notifButton) notifButton.click();
   }
@@ -55,7 +62,7 @@ export default class BottomNav extends Component {
   goProfile() {
     this.activeTab = 'profile';
     if (app.session.user) {
-      m.route.set(app.session.user.attribute('profileSlug') || `/u/${app.session.user.username()}`);
+      m.route.set(app.route('user', { username: app.session.user.username() }));
     }
   }
 

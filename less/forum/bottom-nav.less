@@ -1,4 +1,4 @@
-// Bottom Navigation Bar - Mobile Only
+// Bottom Navigation Bar - Mobile Glass Design
 @media (max-width: 767px) {
   .BottomNav {
     position: fixed;
@@ -6,21 +6,17 @@
     left: 0;
     right: 0;
     height: @modern-bottom-nav-height;
-    background: @modern-bg;
-    border-top: 1px solid @modern-border;
+    background: var(--m-header-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid var(--m-border);
     z-index: @modern-z-fixed;
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 0 @modern-space-2;
     padding-bottom: env(safe-area-inset-bottom);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.95);
-
-    &--dark {
-      background: rgba(15, 23, 42, 0.95);
-    }
+    transition: background var(--m-transition), border-color var(--m-transition);
   }
 
   .BottomNav-item {
@@ -31,67 +27,77 @@
     min-width: @modern-touch-target;
     min-height: @modern-touch-target;
     padding: @modern-space-1 @modern-space-2;
-    color: @modern-text-secondary;
+    color: var(--m-text-tertiary);
     text-decoration: none;
-    border-radius: @modern-radius;
-    transition: all @modern-transition-fast;
+    border-radius: @modern-radius-md;
+    transition: all var(--m-transition-fast);
     position: relative;
     -webkit-tap-highlight-color: transparent;
+    gap: 2px;
 
     &:hover {
-      color: @modern-primary;
+      color: var(--m-text-secondary);
       background: transparent;
     }
 
     &:active {
-      transform: scale(0.95);
+      transform: scale(0.92);
     }
 
     &--active {
-      color: @modern-primary;
-      font-weight: 600;
+      color: var(--m-primary);
+
+      .Icon {
+        transform: scale(1.05);
+      }
 
       &::before {
         content: '';
         position: absolute;
-        top: -1px;
+        top: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 24px;
+        width: 32px;
         height: 3px;
-        background: @modern-primary;
+        background: var(--m-gradient-primary);
         border-radius: 0 0 @modern-radius-full @modern-radius-full;
+        box-shadow: 0 0 8px var(--m-primary-glow);
       }
     }
 
     .Icon {
       font-size: 1.25rem;
-      margin-bottom: 2px;
+      margin: 0;
+      transition: transform var(--m-transition-spring);
     }
 
     .Button-label {
       font-size: 10px;
       line-height: 1;
-      margin-top: 2px;
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: 0.01em;
     }
   }
 
-  // Notification badge on nav item
   .BottomNav-badge {
     position: absolute;
     top: 2px;
-    right: 2px;
-    min-width: 16px;
-    height: 16px;
-    padding: 0 4px;
-    background: @modern-danger;
-    color: @modern-text-inverse;
+    right: 50%;
+    margin-right: -16px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: var(--m-danger);
+    color: #ffffff;
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: @modern-radius-full;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid var(--m-surface);
+    box-shadow: 0 0 8px var(--m-danger-glow);
   }
 }
 

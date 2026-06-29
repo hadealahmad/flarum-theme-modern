@@ -1,4 +1,4 @@
-// Header Styles - Minimal Mobile Design
+// Header Styles - Glass Morphism Design
 @media (max-width: 767px) {
   .Header {
     position: fixed;
@@ -6,14 +6,17 @@
     left: 0;
     right: 0;
     height: @modern-header-height;
-    background: @modern-bg;
-    border-bottom: 1px solid @modern-border;
+    background: var(--m-header-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid var(--m-border);
     z-index: @modern-z-fixed;
     .safe-area-inset-top();
     padding: 0 @modern-space-4;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: background var(--m-transition), border-color var(--m-transition);
 
     .container {
       max-width: 100%;
@@ -25,33 +28,32 @@
     }
   }
 
-  // Hide default header controls on mobile
   .Header-primary,
   .Header-secondary {
     display: none !important;
   }
 
-  // Logo only header
   .Header-logo {
     display: flex;
     align-items: center;
-    gap: @modern-space-3;
+    gap: @modern-space-2;
     text-decoration: none;
-    color: @modern-text;
-    font-weight: 700;
+    color: var(--m-text);
+    font-weight: 800;
     font-size: @modern-text-lg;
+    letter-spacing: -0.02em;
 
     img {
-      height: 28px;
+      height: 32px;
       width: auto;
+      border-radius: @modern-radius-sm;
     }
   }
 
-  // Mobile header actions (search, notifications)
   .Header-actions {
     display: flex;
     align-items: center;
-    gap: @modern-space-2;
+    gap: @modern-space-1;
 
     .Button {
       width: @modern-touch-target;
@@ -62,26 +64,29 @@
       justify-content: center;
       border-radius: @modern-radius-full;
       background: transparent;
-      color: @modern-text;
+      color: var(--m-text-secondary);
       border: none;
+      transition: all var(--m-transition-fast);
+      position: relative;
 
       &:hover {
-        background: @modern-bg-tertiary;
+        background: var(--m-bg-tertiary);
+        color: var(--m-text);
       }
 
       &:active {
-        background: @modern-border;
+        transform: scale(0.92);
       }
 
       .Button-icon {
         margin: 0;
+        font-size: 1.125rem;
       }
     }
   }
 
-  // Search toggle in header
   .Search-toggle {
-    .mobile-only();
+    display: block !important;
   }
 }
 
@@ -92,16 +97,19 @@
     left: @modern-sidebar-width;
     right: 0;
     height: @modern-header-height;
-    background: @modern-bg;
-    border-bottom: 1px solid @modern-border;
+    background: var(--m-header-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid var(--m-border);
     z-index: @modern-z-fixed;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background var(--m-transition), border-color var(--m-transition);
 
     .container {
       max-width: 100%;
-      padding: 0 @modern-space-4;
+      padding: 0 @modern-space-6;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -112,7 +120,7 @@
   .Header-primary {
     display: flex;
     align-items: center;
-    gap: @modern-space-2;
+    gap: @modern-space-1;
     margin: 0;
     padding: 0;
 
@@ -122,9 +130,19 @@
       border-radius: @modern-radius-full;
       font-size: @modern-text-sm;
       font-weight: 500;
+      color: var(--m-text-secondary);
+      background: transparent;
+      border: none;
+      transition: all var(--m-transition-fast);
 
       &:hover {
-        background: @modern-bg-tertiary;
+        background: var(--m-bg-tertiary);
+        color: var(--m-text);
+      }
+
+      &.active {
+        background: var(--m-primary-glow);
+        color: var(--m-primary);
       }
     }
   }
@@ -133,5 +151,23 @@
     display: flex;
     align-items: center;
     gap: @modern-space-2;
+
+    .Button {
+      width: 36px;
+      height: 36px;
+      border-radius: @modern-radius-full;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: var(--m-text-secondary);
+      transition: all var(--m-transition-fast);
+
+      &:hover {
+        background: var(--m-bg-tertiary);
+        color: var(--m-text);
+      }
+    }
   }
 }

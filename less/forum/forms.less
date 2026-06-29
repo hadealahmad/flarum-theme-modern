@@ -1,13 +1,14 @@
-// Form Styles
+// Form Styles - Clean Inputs
 .Form-group {
   margin-bottom: @modern-space-4;
 
   label {
     display: block;
     font-size: @modern-text-sm;
-    font-weight: 500;
-    color: @modern-text;
+    font-weight: 600;
+    color: var(--m-text);
     margin-bottom: @modern-space-2;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -15,26 +16,26 @@
   width: 100%;
   height: @modern-touch-target;
   padding: 0 @modern-space-4;
-  background: @modern-bg;
-  border: 1px solid @modern-border;
-  border-radius: @modern-radius;
+  background: var(--m-surface);
+  border: 1px solid var(--m-border);
+  border-radius: @modern-radius-md;
   font-size: @modern-text-base;
   font-family: @modern-font-family;
-  color: @modern-text;
-  transition: border-color @modern-transition-fast, box-shadow @modern-transition-fast;
+  color: var(--m-text);
+  transition: border-color var(--m-transition-fast), box-shadow var(--m-transition-fast);
 
   &::placeholder {
-    color: @modern-text-tertiary;
+    color: var(--m-text-tertiary);
   }
 
   &:focus {
     outline: none;
-    border-color: @modern-primary;
-    box-shadow: 0 0 0 3px fade(@modern-primary, 20);
+    border-color: var(--m-primary);
+    box-shadow: 0 0 0 3px var(--m-primary-glow);
   }
 
   &:disabled {
-    background: @modern-bg-tertiary;
+    background: var(--m-bg-tertiary);
     cursor: not-allowed;
   }
 }
@@ -56,7 +57,6 @@ select.FormControl {
   padding-right: @modern-space-10;
 }
 
-// Checkbox and Radio
 .checkbox,
 .radio {
   display: flex;
@@ -69,12 +69,11 @@ select.FormControl {
   input[type="radio"] {
     width: 20px;
     height: 20px;
-    accent-color: @modern-primary;
+    accent-color: var(--m-primary);
     cursor: pointer;
   }
 }
 
-// Switch toggle
 .Switch {
   position: relative;
   display: inline-flex;
@@ -86,10 +85,10 @@ select.FormControl {
   .Switch-control {
     width: 44px;
     height: 24px;
-    background: @modern-border;
+    background: var(--m-border-strong);
     border-radius: @modern-radius-full;
     position: relative;
-    transition: background @modern-transition-fast;
+    transition: background var(--m-transition-fast);
 
     &::after {
       content: '';
@@ -98,15 +97,15 @@ select.FormControl {
       left: 2px;
       width: 20px;
       height: 20px;
-      background: @modern-bg;
+      background: #ffffff;
       border-radius: @modern-radius-full;
-      box-shadow: @modern-shadow-sm;
-      transition: transform @modern-transition-fast;
+      box-shadow: var(--m-shadow-sm);
+      transition: transform var(--m-transition-spring);
     }
   }
 
   input:checked + .Switch-control {
-    background: @modern-primary;
+    background: var(--m-primary);
 
     &::after {
       transform: translateX(20px);

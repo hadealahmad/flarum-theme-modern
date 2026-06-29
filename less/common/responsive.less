@@ -1,6 +1,5 @@
 // Modern Theme - Responsive Utilities
 
-// Safe area insets for notch devices
 .safe-area-inset-top() {
   padding-top: env(safe-area-inset-top);
 }
@@ -9,44 +8,53 @@
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-// Touch feedback
 .touch-feedback() {
   &:active {
-    transform: scale(0.98);
-    opacity: 0.9;
+    transform: scale(0.97);
+    opacity: 0.85;
   }
-  transition: transform @modern-transition-fast, opacity @modern-transition-fast;
+  transition: transform var(--m-transition-fast), opacity var(--m-transition-fast);
 }
 
-// Ripple effect base
-.ripple() {
-  position: relative;
+.glass() {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+.glass-strong() {
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+}
+
+.card-shadow() {
+  box-shadow: var(--m-shadow);
+  transition: box-shadow var(--m-transition), transform var(--m-transition);
+
+  &:hover {
+    box-shadow: var(--m-shadow-md);
+    transform: translateY(-1px);
+  }
+}
+
+.elevate-shadow() {
+  box-shadow: var(--m-shadow-sm);
+  transition: box-shadow var(--m-transition), transform var(--m-transition);
+
+  &:hover {
+    box-shadow: var(--m-shadow-lg);
+    transform: translateY(-2px);
+  }
+}
+
+.text-ellipsis() {
+  white-space: nowrap;
   overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 10%, transparent 10.01%);
-    transform: scale(10);
-    opacity: 0;
-    transition: transform 0.4s, opacity 0.8s;
-    pointer-events: none;
-  }
-
-  &:active::after {
-    transform: scale(0);
-    opacity: 1;
-    transition: 0s;
-  }
+  text-overflow: ellipsis;
 }
 
-// Mobile only helper
-.mobile-only() {
-  @media (max-width: 767px) {
-    display: block;
-  }
-  @media (min-width: 768px) {
-    display: none !important;
-  }
+.text-clamp(@lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
